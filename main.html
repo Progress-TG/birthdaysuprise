@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Notre histoire 💙</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #02060d;
+            color: #ffffff;
+            font-family: "Inter", sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           BACKGROUND
+        ========================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle at 50% 20%,
+                    rgba(30, 70, 125, 0.20),
+                    transparent 45%
+                );
+
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        .stars {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #ffffff;
+            border-radius: 50%;
+            opacity: 0.35;
+
+            animation: twinkle 4s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.15;
+            }
+
+            50% {
+                opacity: 0.75;
+            }
+        }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+            padding: 22px 35px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(2, 6, 13, 0.65);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid rgba(120, 160, 210, 0.10);
+
+            z-index: 10;
+        }
+
+        .nav-logo {
+            font-family: "Space Mono", monospace;
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: #8fa9cc;
+        }
+
+        .nav-status {
+            font-family: "Space Mono", monospace;
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: #506684;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 100px 25px 70px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .eyebrow {
+            font-family: "Space Mono", monospace;
+            font-size: 12px;
+            letter-spacing: 4px;
+            color: #6e9bd4;
+
+            margin-bottom: 25px;
+        }
+
+        h1 {
+            font-size: clamp(55px, 11vw, 105px);
+            line-height: 0.95;
+            letter-spacing: -5px;
+            font-weight: 600;
+
+            background: linear-gradient(
+                90deg,
+                #ffffff,
+                #b8d5ff,
+                #ffffff
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            margin-top: 30px;
+
+            font-family: "Space Mono", monospace;
+            font-size: 14px;
+            letter-spacing: 2px;
+            line-height: 1.8;
+
+            color: #8fa9cc;
+        }
+
+        .scroll {
+            margin-top: 80px;
+
+            font-family: "Space Mono", monospace;
+            font-size: 10px;
+            letter-spacing: 3px;
+
+            color: #506684;
+
+            animation: floating 3s infinite ease-in-out;
+        }
+
+        @keyframes floating {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(7px);
+            }
+        }
+
+        /* =========================
+           STORY SECTION
+        ========================= */
+
+        .story {
+            width: 90%;
+            max-width: 950px;
+            margin: auto;
+
+            padding: 100px 0 150px;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 100px;
+        }
+
+        .section-heading .small {
+            font-family: "Space Mono", monospace;
+            color: #6e9bd4;
+            font-size: 11px;
+            letter-spacing: 3px;
+            display: block;
+            margin-bottom: 18px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(35px, 6vw, 60px);
+            font-weight: 500;
+            letter-spacing: -2px;
+        }
+
+        .section-heading p {
+            margin-top: 15px;
+            color: #667c9b;
+            font-family: "Space Mono", monospace;
+            font-size: 12px;
+        }
+
+        /* =========================
+           TIMELINE
+        ========================= */
+
+        .timeline {
+            position: relative;
+        }
+
+        .timeline::before {
+            content: "";
+
+            position: absolute;
+
+            left: 50%;
+            top: 0;
+            bottom: 0;
+
+            width: 1px;
+
+            background: linear-gradient(
+                to bottom,
+                transparent,
+                #315781,
+                #315781,
+                transparent
+            );
+
+            transform: translateX(-50%);
+        }
+
+        .event {
+            position: relative;
+
+            width: 50%;
+
+            padding: 20px 50px 70px;
+        }
+
+        .event:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .event:nth-child(even) {
+            left: 50%;
+            text-align: left;
+        }
+
+        .event-dot {
+            position: absolute;
+
+            top: 28px;
+
+            width: 10px;
+            height: 10px;
+
+            background: #8bb8f0;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 15px rgba(139, 184, 240, 0.5);
+        }
+
+        .event:nth-child(odd) .event-dot {
+            right: -5px;
+        }
+
+        .event:nth-child(even) .event-dot {
+            left: -5px;
+        }
+
+        .event-date {
+            font-family: "Space Mono", monospace;
+            font-size: 11px;
+            letter-spacing: 2px;
+
+            color: #6e9bd4;
+
+            margin-bottom: 12px;
+        }
+
+        .event h3 {
+            font-size: 25px;
+            font-weight: 500;
+
+            margin-bottom: 8px;
+        }
+
+        .event .french {
+            font-family: "Space Mono", monospace;
+            font-size: 11px;
+
+            color: #8fa9cc;
+
+            margin-bottom: 18px;
+        }
+
+        .event-description {
+            color: #71839d;
+            font-size: 14px;
+            line-height: 1.8;
+
+            max-width: 380px;
+        }
+
+        .event:nth-child(odd) .event-description {
+            margin-left: auto;
+        }
+
+        /* =========================
+           INTERACTIVE MEMORY CARD
+        ========================= */
+
+        .memory-button {
+            margin-top: 20px;
+
+            background: transparent;
+
+            border: 1px solid rgba(100, 145, 195, 0.35);
+
+            padding: 10px 17px;
+
+            color: #8fa9cc;
+
+            font-family: "Space Mono", monospace;
+            font-size: 10px;
+            letter-spacing: 1px;
+
+            cursor: pointer;
+
+            transition: all 0.3s ease;
+        }
+
+        .memory-button:hover {
+            border-color: #8bb8f0;
+            color: white;
+
+            background: rgba(30, 70, 125, 0.18);
+        }
+
+        .hidden-memory {
+            display: none;
+
+            margin-top: 15px;
+
+            color: #b8c9df;
+
+            font-size: 13px;
+            line-height: 1.7;
+
+            animation: reveal 0.6s ease;
+        }
+
+        .hidden-memory.show {
+            display: block;
+        }
+
+        @keyframes reveal {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+           END MESSAGE
+        ========================= */
+
+        .ending {
+            min-height: 70vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 80px 25px;
+        }
+
+        .ending-content {
+            max-width: 650px;
+        }
+
+        .ending .small {
+            font-family: "Space Mono", monospace;
+            font-size: 11px;
+            letter-spacing: 3px;
+            color: #6e9bd4;
+        }
+
+        .ending h2 {
+            font-size: clamp(40px, 7vw, 70px);
+            margin-top: 20px;
+            letter-spacing: -3px;
+        }
+
+        .ending p {
+            margin-top: 25px;
+
+            color: #7b8fa9;
+
+            line-height: 1.9;
+            font-size: 15px;
+        }
+
+        .next-button {
+            display: inline-block;
+
+            margin-top: 40px;
+
+            padding: 15px 35px;
+
+            border: 1px solid #426a9f;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-family: "Space Mono", monospace;
+            font-size: 11px;
+            letter-spacing: 2px;
+
+            transition: all 0.3s ease;
+        }
+
+        .next-button:hover {
+            background: rgba(50, 100, 160, 0.25);
+            border-color: #8bb8f0;
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 18px 20px;
+            }
+
+            .nav-status {
+                display: none;
+            }
+
+            .timeline::before {
+                left: 10px;
+            }
+
+            .event,
+            .event:nth-child(even),
+            .event:nth-child(odd) {
+                width: 100%;
+                left: 0;
+
+                text-align: left;
+
+                padding:
+                    20px
+                    20px
+                    65px
+                    45px;
+            }
+
+            .event:nth-child(odd) .event-description {
+                margin-left: 0;
+            }
+
+            .event-dot,
+            .event:nth-child(odd) .event-dot,
+            .event:nth-child(even) .event-dot {
+                left: 5px;
+                right: auto;
+            }
+
+            h1 {
+                letter-spacing: -3px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- BACKGROUND STARS -->
+
+    <div class="stars">
+
+        <span class="star" style="top:8%; left:12%;"></span>
+        <span class="star" style="top:18%; left:78%; animation-delay:1s;"></span>
+        <span class="star" style="top:35%; left:8%; animation-delay:2s;"></span>
+        <span class="star" style="top:50%; left:91%; animation-delay:.5s;"></span>
+        <span class="star" style="top:67%; left:17%; animation-delay:1.5s;"></span>
+        <span class="star" style="top:82%; left:84%; animation-delay:2.5s;"></span>
+        <span class="star" style="top:28%; left:48%; animation-delay:.8s;"></span>
+        <span class="star" style="top:91%; left:42%; animation-delay:1.8s;"></span>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="nav-logo">
+            T × F
+        </div>
+
+        <div class="nav-status">
+            MEMORY ARCHIVE • 01
+        </div>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                MEMORY ARCHIVE // 01
+            </div>
+
+            <h1>
+                Notre histoire.
+            </h1>
+
+            <p class="hero-subtitle">
+                Some moments become memories.<br>
+                <span>Certains moments deviennent des souvenirs.</span>
+            </p>
+
+            <div class="scroll">
+                ↓ &nbsp; SCROLL TO BEGIN &nbsp; ↓
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- STORY -->
+
+    <section class="story">
+
+        <div class="section-heading">
+
+            <span class="small">
+                OUR TIMELINE • NOTRE HISTOIRE
+            </span>
+
+            <h2>
+                How it all began.
+            </h2>
+
+            <p>
+                Un petit morceau de notre histoire.
+            </p>
+
+        </div>
+
+
+        <div class="timeline">
+
+
+            <!-- EVENT 1 -->
+
+            <article class="event">
+
+                <div class="event-dot"></div>
+
+                <div class="event-date">
+                    02.01
+                </div>
+
+                <h3>
+                    The beginning
+                </h3>
+
+                <div class="french">
+                    Le commencement.
+                </div>
+
+                <p class="event-description">
+                    This is where our story officially begins.
+                    One date, two people, and a chapter neither
+                    of us knew would become so important.
+                </p>
+
+                <button
+                    class="memory-button"
+                    onclick="toggleMemory('memory1')">
+
+                    + OUVRIR LE SOUVENIR
+
+                </button>
+
+                <p id="memory1" class="hidden-memory">
+                    Replace this with your actual memory from
+                    January 2nd. Something only the two of you
+                    would understand.
+                </p>
+
+            </article>
+
+
+            <!-- EVENT 2 -->
+
+            <article class="event">
+
+                <div class="event-dot"></div>
+
+                <div class="event-date">
+                    CHAPTER 02
+                </div>
+
+                <h3>
+                    Getting to know you
+                </h3>
+
+                <div class="french">
+                    Apprendre à te connaître.
+                </div>
+
+                <p class="event-description">
+                    The conversations, the little details,
+                    the moments that slowly made you feel
+                    less like someone I knew and more like
+                    someone who mattered.
+                </p>
+
+                <button
+                    class="memory-button"
+                    onclick="toggleMemory('memory2')">
+
+                    + DÉVERROUILLER
+
+                </button>
+
+                <p id="memory2" class="hidden-memory">
+                    Add one of your favourite early memories here.
+                </p>
+
+            </article>
+
+
+            <!-- EVENT 3 -->
+
+            <article class="event">
+
+                <div class="event-dot"></div>
+
+                <div class="event-date">
+                    CHAPTER 03
+                </div>
+
+                <h3>
+                    The distance
+                </h3>
+
+                <div class="french">
+                    Malgré la distance.
+                </div>
+
+                <p class="event-description">
+                    Different places. Different days.
+                    Still, somehow, the story continued.
+                </p>
+
+                <button
+                    class="memory-button"
+                    onclick="toggleMemory('memory3')">
+
+                    + VOIR
+
+                </button>
+
+                <p id="memory3" class="hidden-memory">
+                    Add something personal about navigating
+                    the distance together.
+                </p>
+
+            </article>
+
+
+            <!-- EVENT 4 -->
+
+            <article class="event">
+
+                <div class="event-dot"></div>
+
+                <div class="event-date">
+                    CHAPTER 04
+                </div>
+
+                <h3>
+                    The moments that stayed
+                </h3>
+
+                <div class="french">
+                    Les souvenirs qui restent.
+                </div>
+
+                <p class="event-description">
+                    Not every important moment is loud.
+                    Sometimes it is simply a conversation,
+                    a song, a message, or a tiny thing that
+                    stayed in your mind.
+                </p>
+
+                <button
+                    class="memory-button"
+                    onclick="toggleMemory('memory4')">
+
+                    + OUVRIR
+
+                </button>
+
+                <p id="memory4" class="hidden-memory">
+                    Add another personal memory here.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ENDING -->
+
+    <section class="ending">
+
+        <div class="ending-content">
+
+            <div class="small">
+                END OF CHAPTER ONE
+            </div>
+
+            <h2>
+                Et ce n'est que le début.
+            </h2>
+
+            <p>
+                And this is only the beginning.
+                <br><br>
+                Il reste encore beaucoup de souvenirs à créer.
+            </p>
+
+            <a href="#" class="next-button">
+                CONTINUE →
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+        function toggleMemory(id) {
+
+            const memory = document.getElementById(id);
+
+            memory.classList.toggle("show");
+
+        }
+
+    </script>
+
+</body>
+</html>
