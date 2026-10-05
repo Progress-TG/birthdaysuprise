@@ -154,7 +154,137 @@
         }
 
         /* Tiny text underneath */
+/* =========================
+   BIRTHDAY COUNTDOWN
+========================= */
 
+.countdown-section {
+    margin-top: 35px;
+    margin-bottom: 40px;
+
+    opacity: 0;
+
+    animation: fadeIn 1.5s 2.5s forwards;
+}
+
+.countdown-label {
+    font-family: "Space Mono", monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+
+    color: #506684;
+
+    margin-bottom: 15px;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 14px;
+}
+
+.time-unit {
+    min-width: 55px;
+}
+
+.time-unit span {
+    display: block;
+
+    font-family: "Space Mono", monospace;
+    font-size: 25px;
+    font-weight: 400;
+
+    color: #d8e7fa;
+
+    text-shadow:
+        0 0 15px rgba(139, 184, 240, 0.25);
+}
+
+.time-unit small {
+    display: block;
+
+    margin-top: 5px;
+
+    font-family: "Space Mono", monospace;
+    font-size: 8px;
+    letter-spacing: 1px;
+
+    color: #506684;
+}
+
+.separator {
+    color: #426a9f;
+
+    font-family: "Space Mono", monospace;
+    font-size: 20px;
+
+    margin-top: -13px;
+
+    animation: countdownPulse 1s infinite;
+}
+
+@keyframes countdownPulse {
+
+    0%, 100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+}
+
+/* Mobile */
+
+@media (max-width: 500px) {
+
+    .countdown {
+        gap: 7px;
+    }
+    .birthday-message {
+    font-family: "Space Mono", monospace;
+    font-size: 15px;
+    letter-spacing: 3px;
+    color: #d8e7fa;
+
+    text-shadow:
+        0 0 20px rgba(139, 184, 240, 0.5);
+
+    animation: birthdayGlow 2s infinite alternate;
+}
+
+@keyframes birthdayGlow {
+
+    from {
+        opacity: 0.65;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+}
+
+    .time-unit {
+        min-width: 48px;
+    }
+
+    .time-unit span {
+        font-size: 19px;
+    }
+
+    .time-unit small {
+        font-size: 7px;
+    }
+
+    .separator {
+        font-size: 16px;
+    }
+
+}
         .hint {
             margin-top: 22px;
             font-size: 11px;
@@ -237,7 +367,43 @@
         <p class="subtitle">
             A little something made just for you.
         </p>
+<div class="countdown-section">
 
+    <div class="countdown-label">
+        COUNTDOWN TO YOUR 18TH
+    </div>
+
+    <div class="countdown" id="countdown">
+
+        <div class="time-unit">
+            <span id="days">00</span>
+            <small>DAYS</small>
+        </div>
+
+        <div class="separator">:</div>
+
+        <div class="time-unit">
+            <span id="hours">00</span>
+            <small>HOURS</small>
+        </div>
+
+        <div class="separator">:</div>
+
+        <div class="time-unit">
+            <span id="minutes">00</span>
+            <small>MINUTES</small>
+        </div>
+
+        <div class="separator">:</div>
+
+        <div class="time-unit">
+            <span id="seconds">00</span>
+            <small>SECONDS</small>
+        </div>
+
+    </div>
+
+</div>
         <a href="main.html" class="enter-button">
             ENTER →
         </a>
@@ -249,4 +415,60 @@
     </main>
 
 </body>
+    <script>
+
+    // Birthday: November 9, 2026
+    const birthday = new Date("November 9, 2026 00:00:00").getTime();
+
+    function updateCountdown() {
+
+        const now = new Date().getTime();
+
+        const difference = birthday - now;
+
+        if (difference <= 0) {
+
+            document.getElementById("countdown").innerHTML =
+                "<div class='birthday-message'>HAPPY 18TH BIRTHDAY 💙</div>";
+
+            return;
+        }
+
+        const days = Math.floor(
+            difference / (1000 * 60 * 60 * 24)
+        );
+
+        const hours = Math.floor(
+            (difference / (1000 * 60 * 60)) % 24
+        );
+
+        const minutes = Math.floor(
+            (difference / (1000 * 60)) % 60
+        );
+
+        const seconds = Math.floor(
+            (difference / 1000) % 60
+        );
+
+        document.getElementById("days").textContent =
+            String(days).padStart(2, "0");
+
+        document.getElementById("hours").textContent =
+            String(hours).padStart(2, "0");
+
+        document.getElementById("minutes").textContent =
+            String(minutes).padStart(2, "0");
+
+        document.getElementById("seconds").textContent =
+            String(seconds).padStart(2, "0");
+    }
+
+    updateCountdown();
+
+    setInterval(updateCountdown, 1000);
+
+</script>
+
+</body>
+</html>
 </html>
