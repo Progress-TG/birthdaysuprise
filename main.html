@@ -522,7 +522,58 @@
 
         }
 
-    </style>
+   
+/* ===== SOUNDTRACK PLAYER ===== */
+
+.soundtrack {
+    width: min(420px, 90%);
+    margin: 30px auto;
+    padding: 22px;
+    box-sizing: border-box;
+
+    background: rgba(12, 25, 45, 0.85);
+    border: 1px solid rgba(117, 166, 225, 0.25);
+    border-radius: 14px;
+
+    box-shadow: 0 0 28px rgba(67, 130, 205, 0.08);
+    text-align: center;
+}
+
+.soundtrack-label {
+    color: #7798c0;
+    font-family: "Space Mono", monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.soundtrack-title {
+    color: #e0ebfa;
+    font-size: 17px;
+    margin-bottom: 6px;
+}
+
+.soundtrack-artist {
+    color: #91a7c4;
+    font-size: 12px;
+    margin-bottom: 18px;
+}
+
+.soundtrack iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    border-radius: 8px;
+}
+
+.soundtrack-note {
+    color: #7790ae;
+    font-size: 11px;
+    line-height: 1.7;
+    margin-top: 12px;
+}
+ </style>
 </head>
 
 
@@ -607,6 +658,36 @@
 
         </div>
 
+
+  
+<!-- SOUNDTRACK: MEMORIES -->
+
+<div class="soundtrack">
+    <div class="soundtrack-label">
+        SOUNDTRACK // 01
+    </div>
+
+    <div class="soundtrack-title">
+        A Thousand Years
+    </div>
+
+    <div class="soundtrack-artist">
+        Christina Perri
+    </div>
+
+    <iframe
+        src="https://www.youtube-nocookie.com/embed/VIDEO_ID_HERE"
+        title="A Thousand Years by Christina Perri"
+        loading="lazy"
+        allow="encrypted-media; picture-in-picture"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+    </iframe>
+
+    <div class="soundtrack-note">
+        Press play when you're ready. Écoute à ton rythme.
+    </div>
+</div>
 
         <div class="timeline">
 
