@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Si tu savais… | T × F</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #07111f;
+    color: #e7efff;
+    font-family: Georgia, 'Times New Roman', serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(48, 100, 170, .15), transparent 35%),
+        radial-gradient(circle at 85% 75%, rgba(35, 75, 135, .13), transparent 40%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.container {
+    width: min(760px, 90%);
+    margin: auto;
+    padding: 45px 0 70px;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #829fc5;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 100px;
+}
+
+.lock {
+    font-size: 18px;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 65px;
+}
+
+.eyebrow {
+    color: #8baedb;
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: clamp(38px, 8vw, 66px);
+    font-weight: normal;
+    font-style: italic;
+    color: #e5efff;
+    text-shadow: 0 0 30px rgba(100, 160, 230, .25);
+}
+
+.line {
+    width: 55px;
+    height: 1px;
+    background: #7198c9;
+    margin: 30px auto;
+}
+
+.intro {
+    color: #9bb3d4;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.letter {
+    background: rgba(15, 29, 49, .75);
+    border: 1px solid rgba(116, 153, 198, .2);
+    border-radius: 12px;
+    padding: clamp(25px, 6vw, 55px);
+    box-shadow: 0 15px 60px rgba(0, 0, 0, .2);
+}
+
+.letter p {
+    font-size: 17px;
+    line-height: 2;
+    color: #d1def1;
+    margin-bottom: 27px;
+}
+
+.letter .birthday {
+    color: #a9c9f3;
+    font-size: 21px;
+    text-align: center;
+    margin: 42px 0;
+}
+
+.letter .closing {
+    color: #b7d0f3;
+    font-style: italic;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.music {
+    text-align: center;
+    margin: 65px 0;
+    font-family: Arial, sans-serif;
+}
+
+.music-label {
+    color: #819fc6;
+    font-size: 10px;
+    letter-spacing: 3px;
+    margin-bottom: 15px;
+}
+
+.music a {
+    display: inline-block;
+    color: #d9e8ff;
+    text-decoration: none;
+    border: 1px solid #526f96;
+    padding: 13px 24px;
+    border-radius: 30px;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.music a:hover {
+    background: #193253;
+    border-color: #9bbde8;
+    box-shadow: 0 0 22px rgba(100, 160, 230, .2);
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 65px;
+    font-family: Arial, sans-serif;
+}
+
+.navigation a {
+    color: #9bb9e0;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding: 12px 0;
+}
+
+.navigation a:hover {
+    color: white;
+}
+
+.footer {
+    text-align: center;
+    color: #607c9f;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-top: 65px;
+}
+
+@media (max-width: 500px) {
+    .topbar {
+        margin-bottom: 75px;
+    }
+
+    .letter p {
+        font-size: 15px;
+        line-height: 1.9;
+    }
+
+    .navigation {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header class="topbar">
+        <span>T × F / ARCHIVE 003</span>
+        <span class="lock">♧</span>
+    </header>
+
+    <section class="heading">
+        <p class="eyebrow">UN PETIT MOT POUR TOI</p>
+        <h1>Si tu savais…</h1>
+        <div class="line"></div>
+    </section>
+
+    <main class="letter">
+
+        <p class="reveal">
+            Si seulement tu savais, mon chéri…
+        </p>
+
+        <p class="reveal">
+            Si seulement tu savais à quel point tu fais battre mon cœur à chaque fois que je reçois un message de toi, à quel point tu illumines mes journées, à quel point tu arrives si rapidement à transformer mes mauvais moments en instants de bonheur, à quel point ton rire me fait fondre, comment tu arrives à me faire verser des larmes de joie, et comment, chaque jour qui passe, tu repousses un peu plus les limites de mon cœur, qui ne cesse de t'aimer davantage…
+        </p>
+
+        <p class="birthday reveal">
+            Riche, joyeux 18ᵉ anniversaire !
+        </p>
+
+        <p class="reveal">
+            Je ne pense pas que tu réalises pleinement le chemin que tu as parcouru, tout ce que tu as accompli, à quel point tu as dépassé les attentes de tous et combien de fois tu as prouvé au monde de quoi tu es capable, et même bien plus encore.
+        </p>
+
+        <p class="reveal">
+            Tu me rends tellement fière, mon amour, à travers tout ce que tu as accompli, tout ce que tu fais aujourd'hui et tout ce que tu continueras d'accomplir. Tu es un battant, Riche. Un meneur. Un homme qui atteint ses objectifs. Un homme qui surmonte les obstacles. Mais bien au-delà de toutes ces qualités, tu es un frère, un fils, un neveu, un oncle, un futur époux (bientôt officiellement*), et surtout, tu es un enfant du Dieu Très-Haut.
+        </p>
+
+        <p class="reveal">
+            Je prie pour qu'en entrant dans cette nouvelle étape de ta vie, celle de l'âge adulte, la main de Dieu continue de reposer sur ta vie. Qu'Il te comble d'une abondance de bénédictions. Qu'Il t'accorde une sagesse, une connaissance et une intelligence qui débordent. Qu'Il te protège de tout ce qui pourrait te mettre en danger. Et enfin, qu'Il ouvre tes yeux afin que tu puisses reconnaître tout ce que tu as déjà accompli et qu'Il t'aide à être moins dur envers toi-même.
+        </p>
+
+        <p class="reveal">
+            Riche, je t'aime bien plus que tu ne pourrais jamais l'imaginer.
+        </p>
+
+        <p class="closing reveal">
+            J'espère que tu profiteras pleinement de ta journée. Et pour le reste de ta vie, je veux que tu avances avec assurance, pleinement conscient de qui tu es en Christ. À une nouvelle saison remplie d'opportunités extraordinaires, de grâce et de faveur !
+        </p>
+
+    </main>
+
+    <section class="music reveal">
+        <p class="music-label">UNE CHANSON POUR ACCOMPAGNER CES MOTS</p>
+        <a href="https://www.youtube.com/results?search_query=Slimane+Des+milliers+de+je+t%27aime+clip+officiel"
+           target="_blank" rel="noopener noreferrer">
+            ♫ Écouter notre chanson
+        </a>
+    </section>
+
+    <nav class="navigation">
+        <a href="main.html">← NOTRE HISTOIRE</a>
+        <a href="challenge.html">LE PROCHAIN CHAPITRE →</a>
+    </nav>
+
+    <footer class="footer">
+        FAIT AVEC AMOUR · T × F
+    </footer>
+
+</div>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.15
+});
+
+document.querySelectorAll(".reveal").forEach(element => {
+    observer.observe(element);
+});
+</script>
+
+</body>
+</html>
