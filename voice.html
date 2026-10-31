@@ -1,0 +1,184 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quelques mots de moi à toi...</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #050b18;
+    color: #e8efff;
+    font-family: 'Courier New', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 50% 30%, #102b54, transparent 60%);
+    pointer-events: none;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 680px;
+    padding: 45px 35px;
+    text-align: center;
+    background: rgba(7, 17, 35, 0.96);
+    border: 1px solid #244c7c;
+    box-shadow: 0 0 35px rgba(35, 112, 210, 0.13);
+}
+
+.label {
+    color: #65adff;
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-family: Georgia, serif;
+    font-weight: normal;
+    font-size: clamp(30px, 6vw, 43px);
+    line-height: 1.3;
+    color: #dceaff;
+    margin: 0 0 20px;
+}
+
+.intro {
+    color: #9eb3d1;
+    font-size: 14px;
+    line-height: 1.9;
+    margin: 0 auto;
+    max-width: 470px;
+}
+
+.divider {
+    height: 1px;
+    background: #24436a;
+    margin: 35px 0;
+}
+
+.audio-icon {
+    font-size: 35px;
+    color: #7dbaff;
+    margin-bottom: 15px;
+}
+
+.audio-title {
+    color: #dceaff;
+    font-family: Georgia, serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.audio-caption {
+    color: #849bbd;
+    font-size: 12px;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+audio {
+    width: 100%;
+    max-width: 440px;
+    margin: 10px auto;
+}
+
+.note {
+    color: #7189aa;
+    font-size: 11px;
+    line-height: 1.8;
+    margin-top: 18px;
+}
+
+.back {
+    display: inline-block;
+    color: #79baff;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-top: 30px;
+    border-bottom: 1px solid #315c89;
+    padding-bottom: 6px;
+}
+
+.back:hover {
+    color: white;
+}
+
+@media(max-width: 500px) {
+    .container {
+        padding: 35px 22px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="label">UN MESSAGE RIEN QUE POUR TOI</div>
+
+    <h1>Quelques mots<br>de moi à toi...</h1>
+
+    <p class="intro">
+        Il y a des choses que les mots écrits ne peuvent
+        pas toujours exprimer. Alors, cette fois,
+        j'ai voulu que tu puisses entendre ma voix.
+    </p>
+
+    <div class="divider"></div>
+
+    <div class="audio-icon">♫</div>
+
+    <div class="audio-title">
+        Écoute-moi, mon cher.
+    </div>
+
+    <p class="audio-caption">
+        Un petit message, préparé spécialement pour toi.
+        Prends quelques instants et profite de ce moment.
+    </p>
+
+    <!-- YOUR VOICE RECORDING WILL GO HERE -->
+
+    <audio controls>
+        <source src="voice-note.mp3" type="audio/mpeg">
+        Ton navigateur ne prend pas en charge la lecture audio.
+    </audio>
+
+    <p class="note">
+        À écouter avec le son activé.
+    </p>
+
+    <div class="divider"></div>
+
+    <a class="back" href="challenge.html">
+        ← RETOUR AU DÉFI
+    </a>
+
+    <br>
+
+    <a class="back" href="gallery.html">
+        DÉCOUVRIR NOTRE GALERIE →
+    </a>
+
+</div>
+
+</body>
+</html>
