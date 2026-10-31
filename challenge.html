@@ -1,0 +1,523 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Access Restricted | Riche</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #050b18;
+    color: #e8efff;
+    font-family: 'Courier New', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 50% 20%, #102b54 0%, transparent 55%);
+    pointer-events: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 680px;
+    position: relative;
+    border: 1px solid #244c7c;
+    background: rgba(7, 17, 35, 0.96);
+    padding: 35px;
+    box-shadow: 0 0 35px rgba(35, 112, 210, 0.13);
+}
+
+.topline {
+    color: #5ca9ff;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: clamp(27px, 6vw, 42px);
+    letter-spacing: 3px;
+    margin: 0 0 12px;
+}
+
+.subtitle {
+    color: #8ca5c8;
+    line-height: 1.7;
+    font-size: 14px;
+}
+
+.status {
+    color: #ff6b79;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin: 25px 0;
+}
+
+.divider {
+    height: 1px;
+    background: #1b385c;
+    margin: 25px 0;
+}
+
+.stage-label {
+    color: #5ca9ff;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+h2 {
+    font-size: 20px;
+    margin: 0 0 18px;
+}
+
+.question {
+    color: #c6d5eb;
+    font-size: 14px;
+    line-height: 1.9;
+    margin-bottom: 20px;
+}
+
+.codebox {
+    background: #020712;
+    border: 1px solid #19375e;
+    padding: 18px;
+    color: #8cc7ff;
+    line-height: 1.8;
+    font-size: 13px;
+    overflow-x: auto;
+    margin: 18px 0;
+    white-space: pre-wrap;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    background: #020712;
+    border: 1px solid #315c89;
+    color: #fff;
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+    margin-bottom: 13px;
+}
+
+input:focus {
+    border-color: #66b4ff;
+    box-shadow: 0 0 12px #1b5c9c55;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background: #15569a;
+    border: 1px solid #55a9ff;
+    color: white;
+    font-family: inherit;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+button:hover {
+    background: #2679c9;
+    box-shadow: 0 0 18px #247dcc66;
+}
+
+.feedback {
+    min-height: 25px;
+    margin-top: 17px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #ff8d98;
+}
+
+.hidden {
+    display: none;
+}
+
+.success {
+    color: #65e6b2;
+}
+
+.progress {
+    display: flex;
+    gap: 8px;
+    margin: 25px 0;
+}
+
+.progress span {
+    height: 4px;
+    flex: 1;
+    background: #1a2b43;
+}
+
+.progress span.active {
+    background: #56aaff;
+    box-shadow: 0 0 9px #56aaff;
+}
+
+.music {
+    display: inline-block;
+    color: #8cc7ff;
+    font-size: 12px;
+    margin-top: 15px;
+    text-decoration: none;
+    border-bottom: 1px solid #315c89;
+    padding-bottom: 4px;
+}
+
+.music:hover {
+    color: white;
+}
+
+.reveal {
+    text-align: center;
+    padding: 15px 0;
+    animation: appear 1s ease;
+}
+
+.reveal h2 {
+    color: #75bdff;
+    font-size: 28px;
+    letter-spacing: 2px;
+}
+
+.reveal p {
+    color: #c6d5eb;
+    line-height: 1.9;
+    font-size: 14px;
+}
+
+.reveal .birthday {
+    font-size: 19px;
+    color: #ffffff;
+    margin: 25px 0;
+}
+
+.back {
+    display: block;
+    color: #6b91bd;
+    font-size: 11px;
+    text-decoration: none;
+    margin-top: 30px;
+    letter-spacing: 1px;
+}
+
+@keyframes appear {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media(max-width: 500px) {
+    .container {
+        padding: 23px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="topline">R // SYSTEM SECURITY PROTOCOL</div>
+
+    <h1>ACCESS RESTRICTED</h1>
+
+    <p class="subtitle">
+        Un dernier défi t'attend, Riche.<br>
+        Three stages. Three problems. One message.<br>
+        Your mission is to prove that you can think beyond the obvious.
+    </p>
+
+    <div class="status" id="status">● SECURITY LEVEL: LOCKED</div>
+
+    <div class="progress">
+        <span id="bar1" class="active"></span>
+        <span id="bar2"></span>
+        <span id="bar3"></span>
+    </div>
+
+    <!-- STAGE ONE -->
+
+    <section id="stage1">
+
+        <div class="stage-label">MISSION 01 / THE DATE CIPHER</div>
+
+        <h2>Decode the coordinates.</h2>
+
+        <p class="question">
+            Every important date leaves a trace.
+            This one has been converted into binary.
+            Your task is to decode all three numbers and
+            identify the date they represent.
+            <br><br>
+            Enter your answer in the format DD/MM/YYYY.
+        </p>
+
+        <div class="codebox">
+DAY:   10
+MONTH: 1
+YEAR:  11111101011
+
+        </div>
+
+        <input id="answer1" type="text"
+        placeholder="DD/MM/YYYY"
+        autocomplete="off">
+
+        <button onclick="checkStage1()">DECODE DATE</button>
+
+        <div class="feedback" id="feedback1"></div>
+
+    </section>
+
+
+    <!-- STAGE TWO -->
+
+    <section id="stage2" class="hidden">
+
+        <div class="stage-label">MISSION 02 / CODE EXECUTION</div>
+
+        <h2>Think like a programmer.</h2>
+
+        <p class="question">
+            The following JavaScript code is ready to execute.
+            Trace every operation in the correct order.
+            What exact number will be printed in the console?
+            <br><br>
+            Do not guess. Follow the variables.
+        </p>
+
+        <div class="codebox">let x = 7;
+
+x *= 3;
+x -= 5;
+x **= 2;
+
+console.log(x);</div>
+
+        <input id="answer2" type="text"
+        placeholder="Console output"
+        autocomplete="off">
+
+        <button onclick="checkStage2()">RUN CODE</button>
+
+        <div class="feedback" id="feedback2"></div>
+
+        <a class="music"
+        href="https://www.youtube.com/results?search_query=John+Legend+All+of+Me+official+video"
+        target="_blank" rel="noopener">
+        ♫ PLAY THE CHALLENGE SOUNDTRACK
+        </a>
+
+    </section>
+
+
+    <!-- STAGE THREE -->
+
+    <section id="stage3" class="hidden">
+
+        <div class="stage-label">MISSION 03 / FINAL CALCULATION</div>
+
+        <h2>One final combination.</h2>
+
+        <p class="question">
+            You've decoded the anniversary and executed the code.
+            Now combine what you've discovered.
+            <br><br>
+            Let:
+            <br>
+            <strong>D</strong> = the day of the anniversary
+            <br>
+            <strong>M</strong> = the month of the anniversary
+            <br>
+            <strong>C</strong> = the output of the JavaScript code
+            <br>
+            <strong>A</strong> = the age being celebrated today
+            <br><br>
+            Calculate the final access code:
+        </p>
+
+        <div class="codebox">
+(C ÷ 4) + (D × M) + A
+
+        </div>
+
+        <p class="question">
+            Every clue you've collected matters.
+            Enter the final two-digit access code.
+        </p>
+
+        <input id="answer3" type="text"
+        placeholder="FINAL ACCESS CODE"
+        autocomplete="off">
+
+        <button onclick="checkStage3()">AUTHORISE ACCESS</button>
+
+        <div class="feedback" id="feedback3"></div>
+
+    </section>
+
+
+    <!-- FINAL REVEAL -->
+
+    <section id="finalReveal" class="hidden reveal">
+
+        <div class="stage-label success">● ALL SECURITY PROTOCOLS PASSED</div>
+
+        <h2>ACCESS GRANTED.</h2>
+
+        <div class="divider"></div>
+
+        <p class="birthday">
+            HAPPY 18TH BIRTHDAY, RICHE!
+        </p>
+
+        <p>
+            You solved every puzzle, decoded every clue
+            and made it to the other side.
+        </p>
+
+        <p>
+            But this was never really about the code.
+            It was about celebrating someone who means
+            more to me than words can explain.
+        </p>
+
+        <p>
+            Here's to 18 years of your life, to everything
+            you've overcome, and to all the extraordinary
+            things still waiting for you.
+        </p>
+
+        <p class="birthday">
+            This is only the beginning. ❤️
+        </p>
+
+        <div class="divider"></div>
+
+        <p>
+            Your next soundtrack has been unlocked.
+        </p>
+
+        <a class="music"
+        href="https://www.youtube.com/results?search_query=Dadju+Tayc+I+Love+You+official"
+        target="_blank" rel="noopener">
+        ♫ ÉCOUTER NOTRE CHANSON
+        </a>
+
+        <a class="back" href="letter.html">
+            ← RETOUR À TA LETTRE
+        </a>
+
+    </section>
+
+</div>
+
+
+<script>
+
+function showStage(number) {
+    document.getElementById("stage1").classList.add("hidden");
+    document.getElementById("stage2").classList.add("hidden");
+    document.getElementById("stage3").classList.add("hidden");
+
+    document.getElementById("stage" + number).classList.remove("hidden");
+
+    for (let i = 1; i <= 3; i++) {
+        if (i <= number) {
+            document.getElementById("bar" + i).classList.add("active");
+        }
+    }
+}
+
+function checkStage1() {
+    const answer = document.getElementById("answer1").value;
+    const cleaned = answer.replace(/[^0-9]/g, "");
+
+    if (cleaned === "02012027") {
+        document.getElementById("feedback1").textContent =
+            "DATE VERIFIED. Anniversary coordinates accepted.";
+        document.getElementById("feedback1").classList.add("success");
+
+        document.getElementById("status").textContent =
+            "● SECURITY LEVEL: 2 / 3";
+
+        setTimeout(() => showStage(2), 900);
+    } else {
+        document.getElementById("feedback1").textContent =
+            "ACCESS DENIED. Check your binary conversions and try again.";
+    }
+}
+
+function checkStage2() {
+    const answer = document.getElementById("answer2").value.trim();
+
+    if (answer === "256") {
+        document.getElementById("feedback2").textContent =
+            "CODE EXECUTED. Output verified.";
+        document.getElementById("feedback2").classList.add("success");
+
+        document.getElementById("status").textContent =
+            "● SECURITY LEVEL: 3 / 3";
+
+        setTimeout(() => showStage(3), 900);
+    } else {
+        document.getElementById("feedback2").textContent =
+            "EXECUTION FAILED. Trace each operation before moving on.";
+    }
+}
+
+function checkStage3() {
+    const answer = document.getElementById("answer3").value.trim();
+
+    if (answer === "84") {
+        document.getElementById("status").textContent =
+            "● SECURITY LEVEL: COMPLETE";
+
+        document.getElementById("stage3").classList.add("hidden");
+        document.getElementById("finalReveal").classList.remove("hidden");
+
+        for (let i = 1; i <= 3; i++) {
+            document.getElementById("bar" + i).classList.add("active");
+        }
+    } else {
+        document.getElementById("feedback3").textContent =
+            "FINAL CODE REJECTED. Revisit your previous results.";
+    }
+}
+
+// Allow Enter to submit each stage
+
+document.querySelectorAll("input").forEach(input => {
+    input.addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            const stage = this.id.replace("answer", "");
+            if (stage === "1") checkStage1();
+            if (stage === "2") checkStage2();
+            if (stage === "3") checkStage3();
+        }
+    });
+});
+
+</script>
+
+</body>
+</html>
