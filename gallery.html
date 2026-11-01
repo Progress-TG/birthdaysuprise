@@ -18,13 +18,11 @@ body {
     background: #02040b;
     color: white;
     font-family: Georgia, serif;
-    overflow-x: hidden;
 }
 
 .room {
     min-height: 100vh;
-    position: relative;
-    padding: 65px 5% 50px;
+    padding: 65px 5% 60px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -38,25 +36,8 @@ body {
         #020817 100%);
 }
 
-.room::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 30%;
-    background: linear-gradient(
-        to bottom,
-        rgba(25, 38, 75, 0.3),
-        transparent
-    );
-    pointer-events: none;
-}
-
 .heading {
     text-align: center;
-    position: relative;
-    z-index: 2;
     margin-bottom: 65px;
 }
 
@@ -74,7 +55,7 @@ body {
     letter-spacing: 2px;
 }
 
-.heading .subtitle {
+.subtitle {
     color: #aab5ca;
     font-size: 14px;
     letter-spacing: 1px;
@@ -86,12 +67,15 @@ body {
     max-width: 1200px;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-    position: relative;
-    z-index: 2;
+    gap: 35px 25px;
+}
+
+.display {
+    min-width: 0;
 }
 
 .screen {
+    width: 100%;
     aspect-ratio: 16 / 10;
     background: #080b15;
     border: 1px solid rgba(135, 169, 255, 0.45);
@@ -99,18 +83,12 @@ body {
         0 0 15px rgba(40, 90, 220, 0.2),
         0 0 35px rgba(25, 65, 180, 0.12);
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
     transition: transform 0.4s, box-shadow 0.4s;
 }
 
 .screen:hover {
-    transform: translateY(-7px);
-    box-shadow:
-        0 0 22px rgba(65, 120, 255, 0.4),
-        0 0 45px rgba(25, 65, 180, 0.2);
+    transform: translateY(-6px);
+    box-shadow: 0 0 25px rgba(65, 120, 255, 0.4);
 }
 
 .screen img,
@@ -121,30 +99,34 @@ body {
     display: block;
 }
 
-.placeholder {
+.caption {
     text-align: center;
-    padding: 15px;
-    color: #8296bd;
+    margin-top: 16px;
+    color: #c5d1e8;
+    font-size: 14px;
+    letter-spacing: 1px;
 }
 
-.placeholder span {
-    display: block;
-    font-size: 30px;
+.video-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #8296bd;
+    background: linear-gradient(135deg, #080d1b, #101d3a);
+}
+
+.video-placeholder span {
+    font-size: 35px;
     margin-bottom: 12px;
 }
 
-.placeholder p {
-    font-size: 12px;
+.video-placeholder p {
+    font-size: 11px;
     letter-spacing: 2px;
     text-transform: uppercase;
-}
-
-.caption {
-    text-align: center;
-    margin-top: 18px;
-    color: #c5d1e8;
-    font-size: 15px;
-    letter-spacing: 1px;
 }
 
 .gallery-note {
@@ -155,8 +137,6 @@ body {
     font-size: 16px;
     line-height: 1.9;
     font-style: italic;
-    position: relative;
-    z-index: 2;
 }
 
 .navigation {
@@ -165,8 +145,6 @@ body {
     gap: 18px;
     flex-wrap: wrap;
     margin-top: 45px;
-    position: relative;
-    z-index: 2;
 }
 
 .navigation a {
@@ -186,23 +164,26 @@ body {
 
 @media (max-width: 750px) {
     .exhibition {
-        grid-template-columns: 1fr;
-        max-width: 520px;
-        gap: 35px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px 15px;
     }
 
     .heading {
         margin-bottom: 45px;
     }
+}
 
-    .gallery-note {
-        margin-top: 55px;
+@media (max-width: 450px) {
+    .exhibition {
+        grid-template-columns: 1fr;
+        max-width: 400px;
     }
 }
 </style>
 </head>
 
 <body>
+
 <div class="room">
 
     <header class="heading">
@@ -215,34 +196,91 @@ body {
 
     <main class="exhibition">
 
-        <div>
+        <!-- PHOTO 1 -->
+        <div class="display">
             <div class="screen">
-                <div class="placeholder">
-                    <span>✦</span>
-                    <p>Our first display</p>
-                </div>
+                <img src="WhatsApp Image 2026-10-12 at 20.48.28.jpeg"
+                     alt="Our first gallery photograph">
             </div>
             <p class="caption">The Beginning</p>
         </div>
 
-        <div>
+        <!-- PHOTO 2 -->
+        <div class="display">
             <div class="screen">
-                <div class="placeholder">
-                    <span>✧</span>
-                    <p>Our second display</p>
-                </div>
+                <img src="WhatsApp Image 2026-10-12 at 20.48.35.jpeg"
+                     alt="A special memory">
             </div>
             <p class="caption">Little Moments</p>
         </div>
 
-        <div>
+        <!-- VIDEO 1 -->
+        <div class="display">
             <div class="screen">
-                <div class="placeholder">
-                    <span>✦</span>
-                    <p>Our third display</p>
+                <div class="video-placeholder">
+                    <span>▶</span>
+                    <p>Video One</p>
                 </div>
             </div>
-            <p class="caption">Our Story</p>
+            <p class="caption">A Moving Memory</p>
+        </div>
+
+        <!-- PHOTO 3 -->
+        <div class="display">
+            <div class="screen">
+                <img src="WhatsApp Image 2026-11-01 at 13.48.26.jpeg"
+                     alt="A favourite photograph">
+            </div>
+            <p class="caption">A Favourite Moment</p>
+        </div>
+
+        <!-- PHOTO 4 -->
+        <div class="display">
+            <div class="screen">
+                <img src="WhatsApp Image 2026-11-01 at 16.40.36 (1).jpeg"
+                     alt="Another special memory">
+            </div>
+            <p class="caption">Captured Forever</p>
+        </div>
+
+        <!-- VIDEO 2 -->
+        <div class="display">
+            <div class="screen">
+                <div class="video-placeholder">
+                    <span>▶</span>
+                    <p>Video Two</p>
+                </div>
+            </div>
+            <p class="caption">Moments in Motion</p>
+        </div>
+
+        <!-- PHOTO 5 -->
+        <div class="display">
+            <div class="screen">
+                <img src="WhatsApp Image 2026-11-01 at 16.40.36.jpeg"
+                     alt="A treasured photograph">
+            </div>
+            <p class="caption">My Favourite Person</p>
+        </div>
+
+        <!-- PHOTO 6 -->
+        <div class="display">
+            <div class="screen">
+                <img src="WhatsApp Image 2026-11-01 at 16.41.57.jpeg"
+                     alt="A memory to treasure">
+            </div>
+            <p class="caption">Us</p>
+        </div>
+
+        <!-- VIDEO 3 -->
+        <div class="display">
+            <div class="screen">
+                <div class="video-placeholder">
+                    <span>▶</span>
+                    <p>Video Three</p>
+                </div>
+            </div>
+            <p class="caption">One More Memory</p>
         </div>
 
     </main>
@@ -257,6 +295,10 @@ body {
         <a href="index.html">RETURN TO THE BEGINNING</a>
     </nav>
 
+</div>
+
+</body>
+</html>
 </div>
 </body>
 </html>
