@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Little Gallery</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: #02040b;
+    color: white;
+    font-family: Georgia, serif;
+    overflow-x: hidden;
+}
+
+.room {
+    min-height: 100vh;
+    position: relative;
+    padding: 65px 5% 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background:
+        radial-gradient(ellipse at 50% 100%,
+        rgba(0, 65, 190, 0.55),
+        transparent 55%),
+        linear-gradient(to bottom,
+        #050711 0%,
+        #030611 55%,
+        #020817 100%);
+}
+
+.room::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(
+        to bottom,
+        rgba(25, 38, 75, 0.3),
+        transparent
+    );
+    pointer-events: none;
+}
+
+.heading {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 65px;
+}
+
+.heading p {
+    color: #8daeea;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-size: 11px;
+    margin-bottom: 16px;
+}
+
+.heading h1 {
+    font-size: clamp(32px, 6vw, 55px);
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+.heading .subtitle {
+    color: #aab5ca;
+    font-size: 14px;
+    letter-spacing: 1px;
+    margin-top: 15px;
+}
+
+.exhibition {
+    width: 100%;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    position: relative;
+    z-index: 2;
+}
+
+.screen {
+    aspect-ratio: 16 / 10;
+    background: #080b15;
+    border: 1px solid rgba(135, 169, 255, 0.45);
+    box-shadow:
+        0 0 15px rgba(40, 90, 220, 0.2),
+        0 0 35px rgba(25, 65, 180, 0.12);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.screen:hover {
+    transform: translateY(-7px);
+    box-shadow:
+        0 0 22px rgba(65, 120, 255, 0.4),
+        0 0 45px rgba(25, 65, 180, 0.2);
+}
+
+.screen img,
+.screen video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.placeholder {
+    text-align: center;
+    padding: 15px;
+    color: #8296bd;
+}
+
+.placeholder span {
+    display: block;
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.placeholder p {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.caption {
+    text-align: center;
+    margin-top: 18px;
+    color: #c5d1e8;
+    font-size: 15px;
+    letter-spacing: 1px;
+}
+
+.gallery-note {
+    margin-top: 85px;
+    text-align: center;
+    max-width: 600px;
+    color: #aab5ca;
+    font-size: 16px;
+    line-height: 1.9;
+    font-style: italic;
+    position: relative;
+    z-index: 2;
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-top: 45px;
+    position: relative;
+    z-index: 2;
+}
+
+.navigation a {
+    color: #dce8ff;
+    text-decoration: none;
+    border: 1px solid rgba(130, 165, 255, 0.5);
+    padding: 13px 22px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.navigation a:hover {
+    background: rgba(55, 100, 210, 0.2);
+    box-shadow: 0 0 18px rgba(65, 120, 255, 0.3);
+}
+
+@media (max-width: 750px) {
+    .exhibition {
+        grid-template-columns: 1fr;
+        max-width: 520px;
+        gap: 35px;
+    }
+
+    .heading {
+        margin-bottom: 45px;
+    }
+
+    .gallery-note {
+        margin-top: 55px;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="room">
+
+    <header class="heading">
+        <p>A collection of memories</p>
+        <h1>Our Little Gallery</h1>
+        <div class="subtitle">
+            Every moment deserves a place here.
+        </div>
+    </header>
+
+    <main class="exhibition">
+
+        <div>
+            <div class="screen">
+                <div class="placeholder">
+                    <span>✦</span>
+                    <p>Our first display</p>
+                </div>
+            </div>
+            <p class="caption">The Beginning</p>
+        </div>
+
+        <div>
+            <div class="screen">
+                <div class="placeholder">
+                    <span>✧</span>
+                    <p>Our second display</p>
+                </div>
+            </div>
+            <p class="caption">Little Moments</p>
+        </div>
+
+        <div>
+            <div class="screen">
+                <div class="placeholder">
+                    <span>✦</span>
+                    <p>Our third display</p>
+                </div>
+            </div>
+            <p class="caption">Our Story</p>
+        </div>
+
+    </main>
+
+    <div class="gallery-note">
+        Some memories are too special to be left in the past.
+        They deserve to be kept, revisited and treasured.
+    </div>
+
+    <nav class="navigation">
+        <a href="voice.html">← PREVIOUS PAGE</a>
+        <a href="index.html">RETURN TO THE BEGINNING</a>
+    </nav>
+
+</div>
+</body>
+</html>
